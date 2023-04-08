@@ -125,6 +125,99 @@
 //	return 0;
 //}
 
+//------------------------   数组作为函数参数   ------------------
+//void bubble_sort(int arr[],int len)  //arr本质是指针
+//{
+//
+//	//冒泡排序
+//	//1.确定趟数    
+//	int i = 0;
+//	int j = 0;
+//	for ( i = 0; i < len-1; i++)
+//	{
+//		for ( j = 0; j < len-1-i; j++)
+//		{
+//			if (arr[j]>arr[j+1])
+//			{
+//				//交换
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
+//	//按升序排列  --  冒泡排序
+//	int sz = sizeof(arr) / sizeof(arr[0]); //计算元素个数 
+//	bubble_sort(arr,sz);   //数组传参本质传的是首元素的地址
+//
+//	return 0;
+//}
+
+
+//冒泡优化函数
+//void bubble_sort(int arr[],int len)  //arr本质是指针
+//{
+//
+//	//冒泡排序
+//	//1.确定趟数    
+//	int i = 0;
+//	int j = 0;
+//	int flag = 1;
+//	for ( i = 0; i < len-1; i++)
+//	{
+//		for ( j = 0; j < len-1-i; j++)
+//		{
+//			if (arr[j]>arr[j+1])
+//			{
+//				//交换
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//				flag = 0;
+//			}
+//		}
+//		if (flag == 1)
+//		{
+//			break;
+//		}
+//	}
+//}
+
+
+
+
+
+//数组名是什么
+//数组名是首元素的地址
+//1.sizeof(数组名)  -  数组名表示整个数组  -  计算的是整个数组的大小单位是字节
+//2.&数组名  -  数组名 表示整个数组 - 取得是整个数组的地址
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int sz = sizeof(arr);
+//	printf("%p\n", &arr);   //取出的是数组的地址，可以用+1来验证
+//	//printf("%p\n", &arr[0]);
+//	printf("%p", arr);
+//	//结果相同，调用数组名就是调用首元素的地址
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
