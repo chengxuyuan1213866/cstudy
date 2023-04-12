@@ -350,28 +350,170 @@
 //	return 0;
 //}
 
+//表达式求值
+//表达式求值的顺序一部分是由操作符的优先级和结合性决定
+//
+
+//整型提升
+//C的整型算术运算总是至少以缺省整型类型的精度来进行的。
+//为了获得这个精度，表达式中的字符和短整型操作数在使用之前被转换为普通整型，这种转换称为整型
+//提升。
+//整型提升的意义：
+//表达式的整型运算要在CPU的相应运算器件内执行，CPU内整型运算器(ALU)的操作数的字节长度
+//一般就是int的字节长度，同时也是CPU的通用寄存器的长度。
+//因此，即使两个char类型的相加，在CPU执行时实际上也要先转换为CPU内整型操作数的标准长
+//度。
+//通用CPU（general - purpose CPU）是难以直接实现两个8比特字节直接相加运算（虽然机器指令
+//中可能有这种字节相加指令）。所以，表达式中各种长度可能小于int长度的整型值，都必须先转
+//换为int或unsigned int，然后才能送入CPU去执行运算。
+
+//无符号整型提升,高位补0
+//int main()
+//{
+//	char a = 3;
+//	char b = 127;
+//	char c = a + b;  //-126
+//
+//	//发现a,b都是char类型,都没有达到一个int的大小
+//	//这里就会发生整型提升
+//	
+//	printf("%d\n", c);
+//	return 0;
+//}
+
+//实例1
+//int main()
+//{
+//	char a = 0xb6;
+//	short b = 0xb600;
+//	int c = 0xb6000000;
+//	if (a == 0xb6)
+//		printf("a");
+//	if (b == 0xb600)
+//		printf("b");
+//	if (c == 0xb6000000)
+//		printf("c");
+//	return 0;
+//}
+
+
+// 实例2
+//int main()
+//{
+//	char c = 1;
+//	//%u 打印无符号整型  %d 打印有符号整型
+//	printf("%u\n", sizeof(c));  //1
+//	printf("%u\n", sizeof(+c)); //4
+//	printf("%u\n", sizeof(-c)); //4
+//	printf("%u\n", sizeof(!c)); //结果应该是4   gcc情况下是4
+//
+//	return 0;
+//}
+
+//!!!!!整型大小发生情况,自身大小达不到整型大小,就会发生整型提升!!!!!!!!
+//---------------------------------------------------------------------
+
+//算数转换
+
+
+//------------------------
+
+//int main()
+//{
+//	int a = 4;
+//	int b = 5;
+//	int c = a + b * 7;//优先级决定计算顺序
+//	int c = a + b + 7;// 优先级不起作用,结合性决定顺序 L-R
+//
+//	return 0;
+//}
 
 
 
+//------------------------------习题------------------------------------
+#include <string.h>
+//int main()
+//{
+//	char str[] = "hello bit";
+//	printf("%d  %d\n", sizeof(str), strlen(str));   //10   9
+//	//strlen - 函数 - 求字符串长度,找\0之前出现的字符个数
+//	//sizeof - 操作符 - 计算变量/类型所占内存大小,单位是字节
+//	return 0;
+//}
+
+//实现函数init()初始化数组为全0
+//实现print()打印数组的每个元素
+//实现reverse()函数完成数组元素的逆置
+
+//void init(int arr[],int len)
+//{
+//	int i = 0;
+//	for (i = 0; i < len; i++)
+//	{
+//		arr[i] = 0;
+//	}
+//	
+// }
+//void print(int arr[],int len)
+//{
+//	int i = 0;
+//	for ( i = 0; i < len; i++)
+//	{
+//		printf("%d \n", arr[i]);
+//	}
+//}
+//void reverse(int arr[], int len)
+//{
+//	int left = 0;
+//	int right = len - 1;
+//	while (left<right)
+//	{
+//		int tmp = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = tmp;
+//		left++;
+//		right--;
+//	
+//	}
+//}
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	print(arr, sz);
+//	//init(arr,sz);
+//	printf("--------------------------------------------\n");
+//	reverse(arr, sz);
+//	print(arr, sz);
+//	return 0;
+//}
 
 
 
+//交换两个数组中的内容  (数组一样大)
 
+void swap(int x[], int y[], int len)
+{
+	int i = 0;
+	for ( i = 0; i < len; i++)
+	{
+		int tmp = x[i];
+		x[i] = y[i];
+		y[i] = tmp;
+	}
+}
 
+int main()
+{
+	int arr1[4] = { 1,1,1,1 };
+	int arr2[4] = { 2,2,2,2 };
+	int sz = sizeof(arr1) / sizeof(arr1[0]);
+	swap(arr1, arr2, sz);
+	printf("%d\n", arr1[0]);
+	printf("%d", arr2[0]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
