@@ -1,2 +1,3 @@
 ﻿  test.c
+E:\Cfile\test_79\test_79\test.c(230,11): warning C4244: “return”: 从“__int64”转换到“int”，可能丢失数据
   test_79.vcxproj -> E:\Cfile\test_79\x64\Debug\test_79.exe
