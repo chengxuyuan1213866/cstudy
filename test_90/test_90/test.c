@@ -183,9 +183,82 @@
 
 
 
+//int NumberOf1(unsigned int n)
+//{
+//	int count = 0;
+//	int i = 0;
+//	while (n)
+//	{
+//		n = n & (n - 1);   //!!!!!!!!!!!!!!去掉二进制的最后一个1
+//		count++;
+//	}
+//
+//	return count;
+//}
+//
+//int main()
+//{
+//	int m = 0;
+//	int n = 0;
+//	int i = 0;
+//	int count = 0;
+//	scanf("%d %d", &m, &n);
+//
+//	//方法二
+//	int ret = m ^ n;   //异或操作   相同为0，不同为1
+//	printf("%d\n", NumberOf1(ret));
+//	//方法一
+//	//for ( i = 0; i < 32; i++)
+//	//{
+//	//	if (((m >> i) & 1) != ((n >> i) & 1))
+//	//	{
+//	//		count++;
+//	//	}
+//	//}
+//	//printf("%d", count);
+//	return 0;
+//}
 
 
+//获取一个整数二进制序列中所有的偶数位和奇数位，分别打印出二进制序列
 
+
+//int main()
+//{
+//
+//	int n = 0;
+//	scanf("%d", &n);
+//	//获取n的二进制中的奇数位和偶数位
+//	int i = 0;
+//	//打印所有偶数位
+//	for  (i = 31; i >= 1; i-=2)
+//	{
+//		printf("%d", (n >> i) & 1);
+//	}
+//	printf("\n");
+//	for ( i = 30; i >=0 ; i-=2)
+//	{
+//		printf("%d", (n >> i) & 1);
+//	}
+//
+//	return 0;
+//}
+
+
+//不创建其他变量，交换两个变量的值
+
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前：a = %d  b = %d\n", a, b);
+//	a = a ^ b;
+//	b = a ^ b;
+//	a = a ^ b;
+//	printf("交换后：a = %d  b = %d\n", a, b);
+//
+//	return 0;
+//}
 
 
 
